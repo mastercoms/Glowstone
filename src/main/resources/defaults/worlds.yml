@@ -1,0 +1,58 @@
+worlds:
+  - world
+  - world_nether
+  - world_the_end
+worlds-settings:
+  world:
+    environment: "normal"
+  world_nether:
+    environment: "nether"
+  world_the_end:
+    environment: "end"
+default:
+  type: "DEFAULT"
+  spawn-radius: 16
+  view-distance: 8
+  gen-structures: true
+  gen-settings:
+    worldDepth: 128
+    overworld:
+      coordinateScale: 684.412
+      heightScaleMultiplier: 1.0
+      depthNoiseScale:
+          x: 200.0
+          z: 200.0
+      mainNoiseScale:
+        x: 80.0
+        y: 160.0
+        z: 80.0
+      surfaceScale:
+      baseSize: 8.5
+      stretchY: 12.0
+      biome:
+        depth:
+          offset: 0.0
+          weight: 1.0
+        scale:
+          offset: 0.0
+          weight: 1.0
+    nether:
+      coordinateScale: 684.412
+      heightScaleMultiplier: 3.0
+      depthNoiseScale:
+        x: 100.0
+        z: 100.0
+      mainNoiseScale:
+        x: 80.0
+        y: 60.0
+        z: 80.0
+      surfaceScale: 0.0625
+    the_end:
+      heightScale: 684.412
+      coordinateScaleMultiplier: 2.0
+      mainNoiseScale:
+        x: 80.0
+        y: 160.0
+        z: 80.0
+  keep-spawn-loaded: true
+  prepare-spawn-chunks: true
