@@ -467,11 +467,10 @@ public class GlowInventory implements Inventory {
     @Override
     public ItemStack[] getContents() {
         ItemStack[] contents = new ItemStack[getSize()];
-
-        int i = 0;
-        for (ItemStack itemStack : this) {
-            contents[i] = InventoryUtil.itemOrEmpty(itemStack);
-            i++;
+        
+        int length = contents.length;
+        for (int i = 0; i < length; i++) {
+            contents[i] = InventoryUtil.itemOrEmpty(slots.get(i));
         }
 
         return contents;
@@ -479,24 +478,27 @@ public class GlowInventory implements Inventory {
 
     @Override
     public void setContents(ItemStack[] items) {
+        if (items == null) {
+            throw new IllegalArgumentException("Cannot set contents to null array!");
+        }
         if (items.length != getSize()) {
             throw new IllegalArgumentException("Length of items must be " + getSize());
         }
 
         Iterator<GlowInventorySlot> iterator = slots.iterator();
         for (int i = 0; i < getSize(); i++) {
-            iterator.next().setItem(items[i]);
+            iterator.next().setItem(InventoryUtil.itemOrEmpty(items[i]));
         }
     }
 
     @Override
     public ItemStack[] getStorageContents() {
-        return new ItemStack[0];
+        return getContents();
     }
 
     @Override
-    public void setStorageContents(ItemStack[] itemStacks) throws IllegalArgumentException {
-
+    public void setStorageContents(ItemStack[] items) throws IllegalArgumentException {
+        setContents(items);
     }
 
     ////////////////////////////////////////////////////////////////////////////
