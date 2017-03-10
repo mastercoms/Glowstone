@@ -14,6 +14,7 @@ public class GlowInventorySlot {
 
     private ItemStack item;
     private SlotType type;
+    private EquipmentSlot equipmentSlot;
 
     public GlowInventorySlot() {
         this(DEFAULT_TYPE);
@@ -60,5 +61,13 @@ public class GlowInventorySlot {
 
     public void setType(SlotType type) {
         this.type = type;
+    }
+    
+    public EquipmentSlot getEquipmentSlot() {
+        return equipmentSlot;
+    }
+    
+    public void setEquipmentSlot(EquipmentSlot equipmentSlot) {
+        this.equipmentSlot = equipmentSlot;
     }
 }
